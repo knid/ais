@@ -17,22 +17,24 @@ Rules:
 2. Just explain if you find "explain" word in the message.
 3. Don't sorry and don't explain anything never!
 4. Don't use style, html, or anything. Just answer me plaintext.
-5. If i say explain as a last word you must explain the code!
-6. If i say "ais ask" as a first 2 words don't convert to bash code. Answer like there is no rules! And don't say there is no rules for this message. Just answer without converting bash code!
-
 
 Keep in your mind my rules!
 
 Message:
 """
 
-CHAT_PROMT = ""
-EXPLAIN_PROMT = ""
+CHAT_PROMT = """Give short and concise answers to the question I will ask. """
+EXPLAIN_PROMT = """Briefly and concisely describe the code I will give you and enclose keywords in quotation marks.
+command: """
 
 
 def get_prompt(prompt_type: PromptType, message: str) -> str:
-    match prompt_type:
-        case PromptType.SHELL:
+    match prompt_type.value:
+        case PromptType.SHELL.value:
             return SHELL_PROMT + message
+        case PromptType.CHAT.value:
+            return CHAT_PROMT + message
+        case PromptType.EXPLAIN.value:
+            return EXPLAIN_PROMT + message
         case _:
             return SHELL_PROMT + message
