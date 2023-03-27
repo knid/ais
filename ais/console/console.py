@@ -33,7 +33,6 @@ class App(RichConsole):
             style=questionary.Style([("answer", "fg:#ffffff bold")]),
             pointer="◌"
         ).ask()
-        print()
         if answer == choices[0]:
             os.system(data)
         elif answer == choices[1]:
