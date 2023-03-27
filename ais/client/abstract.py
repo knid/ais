@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from abc import ABC, abstractmethod, abstractproperty
-from typing import Dict, List
+from typing import Dict, List, Union
 
 from ais.response import Response
 from ais.request import Request
@@ -8,14 +8,13 @@ from ais.history import History
 
 
 class AbstractClient(ABC):
-    def __init__(self, ACCESS_TOKEN: str) -> None:
-        self._ACCESS_TOKEN = ACCESS_TOKEN
+    def __init__(self, ACCESS_KEY: Union[str, None]) -> None:
+        self._ACCESS_KEY = ACCESS_KEY
         self._history: List[History] = []
 
     @abstractproperty
     def token(self) -> str:
         pass
-        # return self._ACCESS_TOKEN
 
     @token.setter
     def token(self, val: str) -> None:
