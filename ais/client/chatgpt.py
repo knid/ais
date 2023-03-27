@@ -33,6 +33,7 @@ class ChatGPTClient(AbstractClient):
                 "Content-Type": "application/json",
             },
             data=req.as_json(),
+
         )
         try:
             if res.json()["error"]["code"] == "invalid_api_key":
