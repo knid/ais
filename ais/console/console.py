@@ -31,6 +31,7 @@ class App(RichConsole):
             "Select action",
             choices=choices,
             style=questionary.Style([("answer", "fg:#ffffff bold")]),
+            pointer="◌"
         ).ask()
         print()
         if answer == choices[0]:
