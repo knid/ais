@@ -38,11 +38,11 @@ ais set ACCESS_KEY <KEY>
 
 ## Running queryies
 
-### Turn to command
-You can just write the what do you want. It will be turn a bash command
+### Translate to command
+You can just write the what do you want. It will translate a bash command
 
 ```bash
-ais • open rtsp::113.76.151.33/1 with ffplay without sound
+ais • open rtsp://113.76.151.33/1 with ffplay without sound
 ──────────────  Command  ───────────────────
 
 ffplay -an rtsp://113.76.151.33/1
