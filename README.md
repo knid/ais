@@ -54,7 +54,7 @@ ffplay -an rtsp://113.76.151.33/1
 ```
 
 ### Explain commands
-If you select "Explain this command" action ChatCGT will explain this command for you.
+If you select "Explain this command" action ChatCPT will explain this command for you.
 
 ```bash
 ? Select action (Use arrow keys)
