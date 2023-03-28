@@ -29,12 +29,11 @@ command: """
 
 
 def get_prompt(prompt_type: PromptType, message: str) -> str:
-    match prompt_type.value:
-        case PromptType.SHELL.value:
-            return SHELL_PROMT + message
-        case PromptType.CHAT.value:
-            return CHAT_PROMT + message
-        case PromptType.EXPLAIN.value:
-            return EXPLAIN_PROMT + message
-        case _:
-            return SHELL_PROMT + message
+    if prompt_type.value == PromptType.SHELL.value:
+        return SHELL_PROMT + message
+    elif prompt_type.value == PromptType.CHAT.value:
+        return CHAT_PROMT + message
+    elif prompt_type.value ==  PromptType.EXPLAIN.value:
+        return EXPLAIN_PROMT + message
+    else:
+        return SHELL_PROMT + message

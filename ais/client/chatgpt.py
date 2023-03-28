@@ -36,7 +36,7 @@ class ChatGPTClient(AbstractClient):
 
         )
         try:
-            if res.json()["error"]["code"] == "invalid_api_key":
+            if "key" in res.json()["error"]["message"]:
                 raise Exception("Access key is not valid!\
                 \nPlease provide a valid openai api key with 'ais set ACCESS_KEY <KEY>'")
         except KeyError:

@@ -2,7 +2,7 @@
 from typing import Dict
 import json
 
-from utils.prompt import PromptType, get_prompt
+from ais.utils.prompt import PromptType, get_prompt
 
 
 class Request:
