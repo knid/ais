@@ -83,11 +83,10 @@ If you select "Explain this command" action ChatCPT will explain this command fo
 Run `ais ask` for asking normal questions.
 
 ```bash
-ais • ais ask how are you?
+ais • ais ask Who is Ataturk?
 ───────────  Result  ─────────────
 
-I am an AI language model, so I do not have feelings or emotions.
-But thank you for asking! How may I assist you today?
+Ataturk is the founder of modern Turkey and its first president.
 ```
 
 ### Run system command in interactive mode
@@ -100,11 +99,11 @@ knid
 
 ### Run without interactive mode
 
-#### Create bash script
+#### Create bash command
 ```bash
-ais -c "create port scanner with bash"
+$ 'ais -c "create port scanner with bash"
 ```
 #### Ask regular questions
 ```bash
-ais -c "ais ask Who is Ataturk"
+$ ais -c "ais ask Suggest me a horror movie"
 ```
