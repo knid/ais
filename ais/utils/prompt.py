@@ -11,11 +11,10 @@ class PromptType(Enum):
 
 
 SHELL_PROMT = """
-You will convert everything i send message to you to {} terminal command.
+You will convert everything i send message to you to {shell} command for {os}.
 I have important rules and you must follow my rules.
 Rules:
 1. Don't explain anything.
-2. Just explain if you find "explain" word in the message.
 3. Don't sorry and don't explain anything never!
 4. Don't use style, html, or anything. Just answer me plaintext.
 
@@ -29,9 +28,14 @@ EXPLAIN_PROMT = """Briefly and concisely describe the code I will give you and e
 command: """
 
 def get_prompt(prompt_type: PromptType, message: str) -> str:
-    system = "windows" if os.name == "nt" else "linux"
+    if os.name == "nt":
+        system = "windows"
+        shell = "PowerShell"
+    else:
+        system = "linux"
+        shell = "bash"
     if prompt_type.value == PromptType.SHELL.value:
-        return SHELL_PROMT.format(system) + message
+        return SHELL_PROMT.format(os=system, shell=shell) + message
     elif prompt_type.value == PromptType.CHAT.value:
         return CHAT_PROMT + message
     elif prompt_type.value ==  PromptType.EXPLAIN.value:
