@@ -33,7 +33,6 @@ class ChatGPTClient(AbstractClient):
                 "Content-Type": "application/json",
             },
             data=req.as_json(),
-
         )
         try:
             if "key" in res.json()["error"]["message"]:
@@ -41,6 +40,8 @@ class ChatGPTClient(AbstractClient):
                 \nPlease provide a valid openai api key with 'ais set ACCESS_KEY <KEY>'")
         except KeyError:
             pass
+        if res.status_code != 200:
+            raise Exception("API Error: " + res.json()["error"]["message"])
         res = Response.from_res(res)
         self.insert_history(History(req, res))
         return res

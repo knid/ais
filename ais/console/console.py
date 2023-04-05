@@ -17,15 +17,21 @@ class App(RichConsole):
         self.config = Config()
         self.client = ChatGPTClient(self._get_access_key())
 
-    def shell_cmd(self, input: str) -> None:
-        choices = ["✅ Run this command", "❔ Explain this command", "❌ Cancel"]
-        try:
-            data = self.get_data(Request(prompt=input, prompt_type=PromptType.SHELL))
-        except Exception as e:
-            self.print(str(e))
-            return
+    def shell_cmd(self, input: str = "", explained: bool = False, data: str = "") -> None:
+        if explained and not data:
+            raise Exception("Data is not valid")
+        choices = ["✅ Run this command", "❌ Cancel"]
+        if not explained:
+            choices.insert(1, "❔ Explain this command")
+            try:
+                if not input: Exception("Inpus is not valid")
+                data = self.get_data(Request(prompt=input, prompt_type=PromptType.SHELL))
+            except Exception as e:
+                self.print(str(e))
+                return
 
-        self.print_data("Command", data)
+        if not explained:
+            self.print_data("Command", data)
 
         answer = questionary.select(
             "Select action",
@@ -35,7 +41,7 @@ class App(RichConsole):
         ).ask()
         if answer == choices[0]:
             os.system(data)
-        elif answer == choices[1]:
+        elif not explained and answer == choices[1]:
             self.explain_of_cmd(data)
         else:
             pass
@@ -48,6 +54,7 @@ class App(RichConsole):
     def explain_of_cmd(self, cmd: str) -> None:
         data = self.get_data(Request(prompt=cmd, prompt_type=PromptType.EXPLAIN))
         self.print_data("Explain", data)
+        self.shell_cmd(explained=True, data=cmd)
 
     def set_config(self, key: str, val: str) -> None:
         self.config.set_config(key, val)
