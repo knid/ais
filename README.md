@@ -16,7 +16,10 @@
 
 Ais (ai shell) is interactive command line ai tool powered by ChatGPT (GPT-3.5). Ais can translate your query into a bash command and explain it to you if you want. In this way, you can get rid of hours of searching for small tasks and increase your learning spectrum.
 
-<a href="https://asciinema.org/a/574737" target="_blank"><img src="https://asciinema.org/a/574737.svg" /></a>
+<div align="center">
+<img src="https://github.com/knid/ais/blob/master/docs/ais.gif?raw=true" />
+</div>
+<!--- <a href="https://asciinema.org/a/574737" target="_blank"><img src="https://asciinema.org/a/574737.svg" /></a> -->
 
 
 ## Getting started
