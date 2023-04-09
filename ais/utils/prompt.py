@@ -17,6 +17,8 @@ Rules:
 1. Don't explain anything.
 3. Don't sorry and don't explain anything never!
 4. Don't use style, html, or anything. Just answer me plaintext.
+5. Be sure it will work
+6. Give me short and enough answers
 
 Keep in your mind my rules!
 
@@ -24,7 +26,10 @@ Message:
 """
 
 CHAT_PROMT = """Give short and concise answers to the question I will ask. """
-EXPLAIN_PROMT = """Briefly and concisely describe the code I will give you and enclose keywords in quotation marks.
+EXPLAIN_PROMT = """
+Briefly and concisely describe the command I will give you and enclose keywords in quotation marks.
+Give me short and enough answers.
+
 command: """
 
 def get_prompt(prompt_type: PromptType, message: str) -> str:
