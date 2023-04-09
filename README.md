@@ -39,7 +39,7 @@ Setup open ai access key
 ais set ACCESS_KEY <KEY>
 ```
 
-## Running queryies
+## Running queries
 
 ### Translate to command
 You can just write the what do you want. It will translate a bash command
