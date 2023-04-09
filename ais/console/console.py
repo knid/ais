@@ -88,7 +88,7 @@ class App(RichConsole):
             self.ask(parser.get_ask())
         elif parser.is_set():
             key, val = parser.get_set()
-            self.config.set_config(key, val)
+            self.set_config(key, val)
         elif parser.is_ais_command():
             self.print("[red bold]Command error[/red bold] Help for ais:")
             self.print(f'{parser.get_help_text("ais")}')
