@@ -71,8 +71,12 @@ class App(RichConsole):
         with self.status(
             "[white]Waiting response", spinner="bouncingBall", spinner_style="white"
         ):
-            res = self.client.make_req(req)
-            return res.message
+            try:
+                res = self.client.make_req(req)
+                return res.message
+            except Exception as e:
+                self.print(str(e))
+                return ""
 
     def _get_access_key(self):
         try:
