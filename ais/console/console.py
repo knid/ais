@@ -43,6 +43,7 @@ class App(RichConsole):
             os.system(data)
         elif not explained and answer == choices[1]:
             self.explain_of_cmd(data)
+            self.shell_cmd(input, True, data)
         else:
             pass
         print()
