@@ -34,7 +34,7 @@ pip install ais-cli
 
 
 ### Setup
-Setup open ai access key
+Setup open ai access key in interactive mode
 ```bash
 ais set ACCESS_KEY <KEY>
 ```
